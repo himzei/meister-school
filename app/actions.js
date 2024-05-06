@@ -37,6 +37,7 @@ export async function updateUserInfo(prevState, formData) {
 
   const name = formData.get("name");
   const phone = formData.get("phone");
+  const avatar = formData.get("avatar");
 
   try {
     await prisma.user.update({
@@ -46,8 +47,12 @@ export async function updateUserInfo(prevState, formData) {
       data: {
         name: name,
         phone: phone,
+        avatar: avatar,
       },
     });
+
+    revalidatePath("/settings");
+
     return {
       status: "green",
       message: "사용저 정보가 성공적으로 업데이트 되었습니다!",
@@ -214,7 +219,7 @@ export async function handleVote(formData) {
     },
   });
 
-  return revalidatePath("/r");
+  revalidatePath("/r");
 }
 
 export async function createComment(formData) {

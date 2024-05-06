@@ -20,7 +20,7 @@ export async function NavBar() {
 
         {/* 로그인 / 로그아웃 */}
         {user?.id ? (
-          <UserDropdown userImage={user.avatar} />
+          <UserDropdown userImage={user.avatar} email={user.email} />
         ) : (
           <div className="*:uppercase flex items-center">
             <Button variant="ghost">

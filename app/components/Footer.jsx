@@ -4,17 +4,17 @@ export default function Footer() {
   return (
     <div className="w-full border-t border-neutral-300 bg-muted ">
       <div className="max-w-screen-xl w-full mx-auto grid grid-cols-[1fr_1fr_1fr_2fr] py-8 px-4 gap-8  h-[200px]">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2 text-sm">
           <p className="text-primary font-semibold">개인정보처리방침</p>
           <p>이용약관</p>
           <p>이메일무단수집거부</p>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2 text-sm">
           <p className="text-primary font-semibold">로그인</p>
           <p>회원가입</p>
           <p>오시는길</p>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
           <Logo />
         </div>
         <div className="flex flex-col gap-2 text-sm">

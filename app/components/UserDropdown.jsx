@@ -3,6 +3,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -10,7 +11,7 @@ import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { logOut } from "../login/actions";
 
-export function UserDropdown({ userImage }) {
+export function UserDropdown({ userImage, email }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -29,26 +30,24 @@ export function UserDropdown({ userImage }) {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end" className="w-[200px]">
+        <DropdownMenuLabel>{email}</DropdownMenuLabel>
+        <DropdownMenuSeparator />
         <DropdownMenuItem>
           <Link className="w-full" href="/r/create">
-            Create Community
+            레딧 토론방 글쓰기
           </Link>
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link className="w-full" href="/create">
-            Create Post
-          </Link>
-        </DropdownMenuItem>
+
         <DropdownMenuItem>
           <Link className="w-full" href="/settings">
-            Settings
+            프로필 설정
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
           <form action={logOut}>
             <button type="submit" className="w-full">
-              Logout
+              로그아웃
             </button>
           </form>
         </DropdownMenuItem>

@@ -1,18 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
 import { updateUserInfo } from "../actions";
 import { SubmitButton } from "./SubmitButton";
 import { useFormState } from "react-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
+import { supabase } from "@/lib/supabase";
 
 export function SettingsFrom({ name, phone, avatar }) {
+  const [avatarUrl, setAvatarUrl] = useState("");
+  const [preview, setPreview] = useState("");
   const [state, formAction] = useFormState(updateUserInfo, null);
   const { toast } = useToast();
 
@@ -31,26 +34,71 @@ export function SettingsFrom({ name, phone, avatar }) {
     }
   }, [state, toast]);
 
+  const onImageChange = async (e) => {
+    const {
+      target: { files },
+    } = e;
+    if (!files) return;
+
+    const file = files[0];
+    const url = URL.createObjectURL(file);
+    setPreview(url);
+
+    const { data: imageData, error } = await supabase.storage
+      .from("avatar")
+      .upload(`${Date.now()}`, file, {
+        cacheControl: "2592000",
+      });
+
+    const {
+      data: { publicUrl },
+    } = await supabase.storage
+      .from("avatar")
+      .getPublicUrl(`${imageData?.path}`);
+
+    setAvatarUrl(publicUrl);
+  };
+
   return (
     <form action={formAction}>
+      <input type="hidden" name="avatar" value={avatarUrl} />
       <h1 className="text-2xl font-extrabold tracking-tight">설정</h1>
 
       <p className="text-muted-foreground text-sm">
-        이 페이지에서 이름을 변경할 수 있습니다!
+        이 페이지에서 프로필을 변경할 수 있습니다!
       </p>
       <Separator className="my-4" />
       <container className="flex flex-col gap-y-4">
         {/* 프로필 */}
-        <div>
-          <img
-            src={
-              avatar ??
-              "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
-            }
-            alt="avatar of user"
-            className="rounded-full size-32 hidden lg:block"
-          />
-        </div>
+        {preview === "" ? (
+          <div>
+            <label htmlFor="avatar">
+              <img
+                src={
+                  avatar ??
+                  "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+                }
+                alt="avatar of user"
+                className="rounded-full size-32 hidden lg:block cursor-pointer"
+              />
+            </label>
+            <input
+              type="file"
+              className="hidden"
+              name="avatar"
+              id="avatar"
+              onChange={onImageChange}
+            />
+          </div>
+        ) : (
+          <div className="size-32 rounded-full overflow-hidden">
+            <img
+              src={preview}
+              alt="preveiw"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        )}
         {/* 이름 */}
         <div>
           <Label className="px-1 font-semibold text-lg">이름</Label>

@@ -50,6 +50,7 @@ export async function login(prevState, formData) {
       select: {
         id: true,
         password: true,
+        name: true,
       },
     });
 
@@ -60,7 +61,11 @@ export async function login(prevState, formData) {
       session.id = user.id;
       await session.save();
 
-      redirect("/profile");
+      if (user.name) {
+        redirect("/");
+      } else {
+        redirect("/settings");
+      }
     } else {
       return {
         fieldErrors: {
