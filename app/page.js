@@ -54,10 +54,10 @@ export default function Home() {
               확보을 위한 미래유망분야 고졸인력 양성사업을 추진
             </p>
             <div className="w-full grid grid-cols-2 gap-3">
-              <div className="bg-muted w-full h-20"></div>
-              <div className="bg-muted w-full h-20"></div>
-              <div className="bg-muted w-full h-20"></div>
-              <div className="bg-muted w-full h-20"></div>
+              <div className="bg-muted w-full h-20">1</div>
+              <div className="bg-muted w-full h-20">2</div>
+              <div className="bg-muted w-full h-20">3</div>
+              <div className="bg-muted w-full h-20">4</div>
             </div>
           </div>
         </div>
