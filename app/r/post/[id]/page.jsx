@@ -97,7 +97,7 @@ export default async function PostPage({ params }) {
 
           <div className="p-2 w-full">
             <p className="text-xs text-muted-foreground">
-              Posted by u/{data.User?.username}
+              작성자 u/{data.User?.username}
             </p>
             <h1 className="font-medium mt-1 text-lg">{data.title}</h1>
 
@@ -117,7 +117,7 @@ export default async function PostPage({ params }) {
               <div className="flex items-center gap-x-1">
                 <MessageCircle className="size-4 text-muted-foreground" />
                 <p className="text-muted-foreground font-medium text-xs">
-                  32 Comments
+                  {data.Comment.length} 코멘트
                 </p>
               </div>
               <CopyLink id={params.id} />
@@ -178,7 +178,7 @@ export default async function PostPage({ params }) {
             <div className="flex items-center gap-x-1 mt-2 ">
               <Calendar className="size-4 text-muted-foreground" />
               <p className="text-muted-foreground font-medium text-sm">
-                Cretaed: {formatToTimeAgo(data?.createdAt.toString())}
+                작성일: {formatToTimeAgo(data?.createdAt.toString())}
               </p>
             </div>
 

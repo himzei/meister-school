@@ -17,10 +17,10 @@ export default function LocalMenus() {
     );
   });
   const secondFilters = firstFilters?.subMenus?.filter((item) => item);
-  let secondTitleItem = secondFilters.find((item) => item.url === pathname);
+  let secondTitleItem = secondFilters?.find((item) => item.url === pathname);
 
-  let firstTitle = firstFilters.title;
-  const secondTitle = secondTitleItem.title;
+  let firstTitle = firstFilters?.title;
+  const secondTitle = secondTitleItem?.title;
 
   const [firstIsOpen, firstRef, firstHandler] = useDetectClose(false);
   const [secondIsOpen, secondRef, secondHandler] = useDetectClose(false);
@@ -98,7 +98,7 @@ export default function LocalMenus() {
             }`}
           >
             <div className="w-full flex flex-col text-neutral-700 px-6 py-6 gap-y-4">
-              {secondFilters.map((item) => (
+              {secondFilters?.map((item) => (
                 <Link key={item.title} href={item.url}>
                   <span
                     className="py-1 px-0.5 hover:border-b

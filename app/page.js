@@ -11,7 +11,7 @@ export default function Home() {
       </div>
 
       {/* 섹션 2 */}
-      <div className="custom-width grid grid-cols-[2fr_1fr] gap-10">
+      <div className="custom-width grid grid-cols-[2fr_1fr] gap-10 py-4">
         {/* 공지사항 */}
         <div className="flex flex-col gap-y-5">
           {/* 제목 */}

@@ -14,7 +14,10 @@ export function UploadFile({ setImageUrl, setFile, setImageId }) {
     const {
       target: { files },
     } = e;
-    if (!files) return;
+
+    if (!files) {
+      return;
+    }
 
     const file = files[0];
     const url = URL.createObjectURL(file);

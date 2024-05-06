@@ -13,41 +13,38 @@ import { TipTapEditor } from "@/app/components/TipTapEditor";
 import { SubmitButton } from "@/app/components/SubmitButton";
 import { useState } from "react";
 import { UploadFile } from "@/app/components/UploadFile";
-import { useFormState } from "react-dom";
 import { createPost } from "@/app/actions";
 
 const rules = [
   {
     id: 1,
-    text: "Remember the human",
+    text: "토론방에 당신의 생각을 작성해 주세요",
   },
   {
     id: 2,
-    text: "Behave like you would in real life",
+    text: "로그인 사용자만 작성이 가능합니다!",
   },
   {
     id: 3,
-    text: "Look for the original source of content",
+    text: "이미지/비디오는 최대 4MB까지 가능!",
   },
   {
     id: 4,
-    text: "Search for duplication ",
+    text: "욕/상대방을 비방하는 내용은 삭제 됩니다!",
   },
   {
     id: 5,
-    text: "hello wordl",
+    text: "레딧으로 건전한 토론을 시작하세요!",
   },
 ];
 
 export default function CreatePostRoute({ params }) {
-  const [imageUrl, setImageUrl] = useState(null);
+  const [imageUrl, setImageUrl] = useState("");
   const [json, setJson] = useState(null);
   const [title, setTitle] = useState(null);
 
   const [file, setFile] = useState(null);
   const [imageId, setImageId] = useState(null);
-
-  const createPostReddit = createPost.bind(null, { jsonContent: json });
 
   const interceptAction = async (formData) => {
     const cloudflareForm = new FormData();
@@ -60,16 +57,16 @@ export default function CreatePostRoute({ params }) {
 
     const photoUrl = `https://imagedelivery.net/N-UcEUejRMIK2RZhJ4DnqA/${imageId}`;
 
-    formData.set("photoUrl", photoUrl ?? null);
+    formData.set("photoUrl", imageId ? photoUrl : "");
 
     return createPost({ jsonContent: json }, formData);
   };
 
   return (
-    <div className="custom-width flex gap-x-10 ">
+    <div className="custom-width flex gap-x-10">
       <div className="w-[70%] flex flex-col gap-y-5">
         <h1 className="font-semibold">
-          Subreddit:{" "}
+          토론방(Subreddit):{" "}
           <Link href={`/r/${params.id}`} className="text-primary">
             r/{params.id}
           </Link>
@@ -78,11 +75,11 @@ export default function CreatePostRoute({ params }) {
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="post">
               <Text className="size-4 mr-2" />
-              Post
+              포스트
             </TabsTrigger>
             <TabsTrigger value="image">
               <Video className="size-4 mr-2" />
-              Image & Video
+              이미지/비디오
             </TabsTrigger>
           </TabsList>
 
@@ -103,7 +100,7 @@ export default function CreatePostRoute({ params }) {
                   <TipTapEditor setJson={setJson} json={json} />
                 </CardHeader>
                 <CardFooter>
-                  <SubmitButton text="Create post" />
+                  <SubmitButton text="글 작성하기" />
                 </CardFooter>
               </form>
             </Card>
@@ -122,7 +119,7 @@ export default function CreatePostRoute({ params }) {
         <Card className="flex flex-col p-4">
           <div className="flex items-center gap-x-2">
             <Image src={pfp} alt="pff" className="size-10" />
-            <h1 className="font-medium">Posting to Reddit</h1>
+            <h1 className="font-medium">마이스터 레디터 환영해요</h1>
           </div>
 
           <Separator className="mt-2" />

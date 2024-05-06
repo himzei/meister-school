@@ -60,10 +60,14 @@
 
 @layer components {
   .custom-width {
-    @apply max-w-screen-xl mx-auto w-full my-8;
+    @apply max-w-screen-xl mx-auto w-full px-4 my-16;
   }
 }
 
 .ProseMirror:focus {
   outline: none;
+}
+
+html {
+  scrollbar-width: none;
 }

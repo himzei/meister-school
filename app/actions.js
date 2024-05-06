@@ -138,7 +138,6 @@ export async function createPost({ jsonContent }, formData) {
   if (!user) {
     return redirect(`/login`);
   }
-  console.log(jsonContent);
 
   const title = formData.get("title");
   const photoUrl = formData.get("photoUrl");

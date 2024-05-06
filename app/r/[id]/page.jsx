@@ -71,14 +71,14 @@ async function getData(name, searchParams) {
 }
 
 export default async function SubredditRoute({ params, searchParams }) {
-  console.log(searchParams);
+  console.log(params.id);
   const { data, count } = await getData(params.id, searchParams.page);
   const user = await getUser();
 
   return (
     <div className="custom-width flex gap-x-10">
       <div className="w-[70%] flex flex-col gap-y-5">
-        <CreatePostCard />
+        <CreatePostCard subName={params.id} />
 
         {data?.posts.length === 0 ? (
           <div className="flex min-h-[400px] justify-center flex-col items-center rounded-md border border-dashed p-8 text-center">

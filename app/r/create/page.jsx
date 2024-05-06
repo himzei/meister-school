@@ -32,8 +32,10 @@ export default function SubredditPage() {
         </h1>
         <Separator className="my-4" />
 
-        <Label className="text-lg">토론방 이름</Label>
-        <p className="text-muted-foreground"></p>
+        <Label className="text-lg font-bold">토론방 이름</Label>
+        <p className="text-muted-foreground text-xs">
+          토론방 이름은 반드시 영문으로 작성해 주세요!
+        </p>
 
         <div className="relative mt-3">
           <p className="absolute left-0 w-8 flex items-center justify-center h-full text-muted-foreground">

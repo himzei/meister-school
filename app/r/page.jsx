@@ -75,21 +75,21 @@ export default function RedditCommunity({ searchParams }) {
                 alt="hello-image"
                 className="w-10 h-16 -mt-6"
               />
-              <h1 className="font-medium pl-2">Home</h1>
+              <h1 className="font-medium pl-2">마이스터고 토론방</h1>
             </div>
             <p className="text-muted-foreground text-sm pt-2">
               {" "}
-              Your home reddit frongpage come here to check in with your
-              favorite communites
+              마이스터고의 토론방입니다. 나의 글을 작성하고 마이스터고 학생들의
+              작품/의견을 업보트 및 다운보트 해주세요!
             </p>
             <Separator className="my-5" />
 
             <div className="flex flex-col gap-y-3">
-              <Button asChid variant="secondary">
-                <Link href="/r/himzei/create">Create post</Link>
-              </Button>
+              {/* <Button asChid variant="secondary">
+                <Link href="/r/himzei/create">나의 글 생성하기</Link>
+              </Button> */}
               <Button asChild>
-                <Link href="/r/create">Create Community</Link>
+                <Link href="/r/create">토론방 만들기</Link>
               </Button>
             </div>
           </div>

@@ -40,7 +40,7 @@ export function PostCard({
           </Link>
           <p className="text-xs text-muted-foreground">
             {" "}
-            Posted by: <span>u/{username}</span>
+            작성자: <span>u/{username}</span>
           </p>
         </div>
 

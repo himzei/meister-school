@@ -18,9 +18,9 @@ export function CommentForm({ postId }) {
       ref={ref}
     >
       <input type="hidden" name="postId" value={postId} />
-      <Label>Comment as himzei</Label>
+      <Label>댓글 작성하기</Label>
       <Textarea
-        placeholder="Whar are your thought?"
+        placeholder="당신의 생각을 댓글로 표현해주세요!"
         className="w-full mt-1 mb-2"
         name="comment"
       />

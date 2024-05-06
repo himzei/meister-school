@@ -6,26 +6,22 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ImageDown, Link2 } from "lucide-react";
 
-export function CreatePostCard() {
+export function CreatePostCard({ subName }) {
   return (
     <Card className="px-4 py-2 flex items-center gap-x-4">
       <Image src={pfp} alt="pfp" className="w-12 h-fit" />
 
-      <Link href="/r/himzei/create" className="w-full">
-        <Input placeholder="Create your post" />
+      <Link href={`/r/${subName}/create`} className="w-full">
+        <Input placeholder="당신의 생각을 알려주세요!" />
       </Link>
 
       <div className="flex items-center gap-x-4">
-        <Button variant="outline" size="icon" asChild>
-          <Link href="/r/himzei/create">
-            <ImageDown className="size-4" />
-          </Link>
+        <Button variant="outline" size="icon">
+          <ImageDown className="size-4" />
         </Button>
 
-        <Button variant="outline" size="icon" asChild>
-          <Link href="/r/himzei/crate">
-            <Link2 className="size-4" />
-          </Link>
+        <Button variant="outline" size="icon">
+          <Link2 className="size-4" />
         </Button>
       </div>
     </Card>

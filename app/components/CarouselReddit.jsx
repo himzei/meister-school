@@ -44,7 +44,7 @@ export function CarouselReddit() {
   return (
     <section className="bg-neutral-100 py-8" ref={ref}>
       <div className="relative overflow-hidden p-4">
-        <div className="mx-auto max-w-screen-xl w-full flex flex-col gap-y-5">
+        <div className="custom-width flex flex-col gap-y-5">
           {/* 타이틀 */}
           <div className="flex items-center justify-between">
             <div className="flex flex-col">
@@ -126,7 +126,7 @@ const posts = [
     id: 1,
     imgUrl:
       "https://images.unsplash.com/photo-1602171514534-3089161f13c2?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    author: "John Anderson",
+    author: "r/2024_image",
     title: "We built an AI chess bot with ChatGPT",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
@@ -135,7 +135,7 @@ const posts = [
     id: 2,
     imgUrl:
       "https://images.unsplash.com/photo-1602167775512-a6adbd35b2e2?q=80&w=3463&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    author: "Kyle Parsons",
+    author: "r/hello",
     title: "How to grow your personal brand as a web designer",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
@@ -144,7 +144,7 @@ const posts = [
     id: 3,
     imgUrl:
       "https://images.unsplash.com/photo-1602572376058-a12f8eb6b946?q=80&w=3049&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    author: "Andrea Bates",
+    author: "r/how_are_you",
     title: "Calm down, monoliths are totally fine",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
@@ -153,7 +153,7 @@ const posts = [
     id: 4,
     imgUrl:
       "https://images.unsplash.com/photo-1601882906700-3035ebabe365?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    author: "Jess Drum",
+    author: "r/python_report",
     title: "A quick guide to Framer Motion (for dummies)",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
@@ -162,7 +162,7 @@ const posts = [
     id: 5,
     imgUrl:
       "https://images.unsplash.com/photo-1600871519165-727c83e4dff1?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    author: "Phil White",
+    author: "r/nextjs14",
     title: "You probably don't need kubernetes",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
@@ -171,7 +171,7 @@ const posts = [
     id: 6,
     imgUrl:
       "https://images.unsplash.com/photo-1638303322325-ff70d6224a22?q=80&w=2704&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    author: "Karen Peabody",
+    author: "r/mission20240601",
     title: "State of JavaScript in 2024",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
@@ -180,7 +180,7 @@ const posts = [
     id: 7,
     imgUrl:
       "https://images.unsplash.com/photo-1633153010796-6cf54b5daebb?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    author: "Dante Gordon",
+    author: "r/photoshop_profile",
     title: "What's new in Python?",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
