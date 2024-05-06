@@ -12,13 +12,17 @@ export default function Socials() {
           카카오
         </Link>
       </Button>
-      <Button variant="outline" className="flex">
-        <FaGoogle size={18} />
-        구글
+      <Button variant="outline" asChild>
+        <Link href="/google/start" className="flex gap-x-1">
+          <FaGoogle size={18} />
+          구글
+        </Link>
       </Button>
-      <Button variant="outline" className="flex">
-        <FaFacebook size={20} />
-        페이스북
+      <Button variant="outline" asChild>
+        <Link href="/facebook/start" className="flex gap-x-1">
+          <FaFacebook size={20} />
+          페이스북
+        </Link>
       </Button>
       <Button variant="outline" aschild>
         <Link href="/github/start" className="flex gap-x-1">

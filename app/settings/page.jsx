@@ -2,10 +2,8 @@ import prisma from "@/lib/db";
 import { getUser } from "../actions";
 import { redirect } from "next/navigation";
 import { SettingsFrom } from "../components/SettingsForm";
-import { unstable_noStore as noStore } from "next/cache";
 
 async function getData(userId) {
-  noStore();
   const data = await prisma.user.findUnique({
     where: {
       id: userId,
