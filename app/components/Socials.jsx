@@ -6,9 +6,11 @@ import Link from "next/link";
 export default function Socials() {
   return (
     <div className="grid grid-cols-4 gap-2 *:uppercase">
-      <Button variant="outline" className="flex">
-        <RiKakaoTalkFill size={22} />
-        카카오
+      <Button variant="outline" asChild>
+        <Link href="/kakao/start" className="flex gap-x-1">
+          <RiKakaoTalkFill size={22} />
+          카카오
+        </Link>
       </Button>
       <Button variant="outline" className="flex">
         <FaGoogle size={18} />

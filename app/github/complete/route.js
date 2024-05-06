@@ -5,7 +5,7 @@ import { notFound, redirect } from "next/navigation";
 export async function GET(request) {
   // step 2
   const code = request.nextUrl.searchParams.get("code");
-  console.log(code);
+
   if (!code) {
     return notFound();
   }
