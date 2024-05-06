@@ -1,7 +1,6 @@
 import prisma from "@/lib/db";
 import getSession from "@/lib/session";
 import { notFound, redirect } from "next/navigation";
-import { NextResponse } from "next/server";
 
 export async function GET(request) {
   const code = request.nextUrl.searchParams.get("code");

@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+
 export async function GET() {
   const baseURL = "https://kauth.kakao.com/oauth/authorize";
   const params = {
@@ -9,5 +11,5 @@ export async function GET() {
   const formattedParams = new URLSearchParams(params).toString();
   const finalUrl = `${baseURL}?${formattedParams}`;
 
-  return Response.redirect(finalUrl);
+  return redirect(finalUrl);
 }
