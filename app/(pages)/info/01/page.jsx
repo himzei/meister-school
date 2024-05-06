@@ -12,13 +12,6 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 moment.locale("ko-KR");
 const localizer = momentLocalizer(moment);
 
-// const resourceMap = [
-//   { resourceId: 1, resourceTitle: "Board room" },
-//   { resourceId: 2, resourceTitle: "Training room" },
-//   { resourceId: 3, resourceTitle: "Meeting room 1" },
-//   { resourceId: 4, resourceTitle: "Meeting room 2" },
-// ];
-
 export default function page() {
   return (
     <div className="custom-width flex flex-col gap-y-5">

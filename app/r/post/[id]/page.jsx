@@ -76,7 +76,7 @@ export default async function PostPage({ params }) {
     <div className="custom-width flex gap-x-10">
       <div className="w-[70%] flex flex-col gap-y-5">
         <Card className="p-2 flex">
-          <div className="flex flex-col items-center gap-y-2 p-2">
+          <div className="flex flex-col items-center gap-y-2 p-2 bg-muted">
             <form action={handleVote}>
               <input type="hidden" name="voteDirection" value="UP" />
               <input type="hidden" name="postId" value={data.id} />
@@ -153,6 +153,7 @@ export default async function PostPage({ params }) {
           </div>
         </Card>
       </div>
+
       <div className="w-[30%]">
         <Card>
           <div className="bg-muted p-4 font-semibold">토론방(Sub Reddit)</div>
