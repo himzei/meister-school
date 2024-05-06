@@ -1,6 +1,4 @@
-import dynamic from "next/dynamic";
-
-const redirect = dynamic(import("next/navigation"));
+import { redirect } from "next/navigation";
 
 export async function GET() {
   const baseURL = "https://kauth.kakao.com/oauth/authorize";
