@@ -3,7 +3,7 @@ import { ScrollingLogos } from "./ScrollingLogos";
 
 export default function Footer() {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full border-t">
       <div className="w-[calc(100vw-160px)]">
         <ScrollingLogos />
       </div>

@@ -25,7 +25,7 @@ export default function SubredditPage() {
   }, [state, toast]);
 
   return (
-    <div className="max-w-screen-xl mx-auto flex flex-col mt-8">
+    <div className="custom-width flex flex-col ">
       <form action={formAction}>
         <h1 className="text-2xl font-extrabold tracking-tight">
           토론방 만들기

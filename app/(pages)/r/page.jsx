@@ -12,6 +12,7 @@ import { Suspense } from "react";
 import SuspenseCard from "@/app/components/SuspenseCard";
 import Pagination from "@/app/components/Pagination";
 import { unstable_noStore as noStore } from "next/cache";
+import { SubredditList } from "@/app/components/SubredditList";
 
 const SHOW_POST = 10;
 
@@ -65,7 +66,7 @@ export default function RedditCommunity({ searchParams }) {
           <ShowItems searchParams={searchParams} />
         </Suspense>
       </div>
-      <div className="w-[30%]">
+      <div className="w-[30%] flex flex-col gap-y-4">
         <Card>
           <Image src={Banner} alt="Banner" />
           <div className="p-2">
@@ -94,6 +95,7 @@ export default function RedditCommunity({ searchParams }) {
             </div>
           </div>
         </Card>
+        <SubredditList />
       </div>
     </div>
   );

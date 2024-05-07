@@ -13,6 +13,13 @@ import {
   SiGenius,
   SiGodaddy,
 } from "react-icons/si";
+import SchoolLogo from "@/public/images/school-logo.png";
+import DhuLogo from "@/public/images/dhu-logo.png";
+import EmploymentLogo from "@/public/images/employment-logo.png";
+import HrdkLogo from "@/public/images/hrdk-logo.jpeg";
+import KyungbukLogo from "@/public/images/kyungbuk-logo.png";
+import Image from "next/image";
+import Link from "next/link";
 
 const TranslateWrapper = ({ children, reverse }) => {
   return (
@@ -20,38 +27,43 @@ const TranslateWrapper = ({ children, reverse }) => {
       initial={{ translateX: reverse ? "-100%" : "0%" }}
       animate={{ translateX: reverse ? "0%" : "-100%" }}
       transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-      className="flex gap-4 px-2 "
+      className="flex gap-10 px-2 "
     >
       {children}
     </motion.div>
   );
 };
 
-const LogoItem = ({ Icon }) => {
+const LogoItem = ({ children, link }) => {
   return (
-    <a
-      href="/"
+    <Link
+      href={link}
       rel="nofollow"
       target="_blank"
-      className="w-16 md:w-24 h-16 md:h-24 flex justify-center items-center hover:bg-slate-200 text-black transition-colors"
+      className="w-44 h-20 flex justify-center items-center transition-colors"
     >
-      <Icon className="text-4xl md:text-5xl" />
-    </a>
+      {children}
+    </Link>
   );
 };
 
 const LogoItems = () => (
   <>
-    <LogoItem Icon={SiBmw} />
-    <LogoItem Icon={SiBurton} />
-    <LogoItem Icon={SiBuildkite} />
-    <LogoItem Icon={SiCouchbase} />
-    <LogoItem Icon={SiDailymotion} />
-    <LogoItem Icon={SiDeliveroo} />
-    <LogoItem Icon={SiEpicgames} />
-    <LogoItem Icon={SiGenius} />
-    <LogoItem Icon={SiGodaddy} />
-    <LogoItem Icon={SiHeroku} />
+    <LogoItem link="https://school.gyo6.net/gbm/main.do">
+      <Image src={SchoolLogo} alt="school-logo" />
+    </LogoItem>
+    <LogoItem link="https://iacf.dhu.ac.kr/main">
+      <Image src={DhuLogo} alt="dhu-logo" />
+    </LogoItem>
+    <LogoItem link="https://www.moel.go.kr/index.do">
+      <Image src={EmploymentLogo} alt="employ-logo" />
+    </LogoItem>
+    <LogoItem link="https://www.hrdkorea.or.kr">
+      <Image src={HrdkLogo} alt="hrdk-logo" />
+    </LogoItem>
+    <LogoItem link="https://www.gbe.kr/main/main.do">
+      <Image src={KyungbukLogo} alt="kyungbuk-logo" />
+    </LogoItem>
   </>
 );
 

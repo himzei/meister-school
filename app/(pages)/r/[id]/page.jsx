@@ -12,6 +12,7 @@ import { Calendar, FileQuestion } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { unstable_noStore as noStore } from "next/cache";
+import { SubredditList } from "@/app/components/SubredditList";
 
 const SHOW_POST = 10;
 
@@ -114,7 +115,7 @@ export default async function SubredditRoute({ params, searchParams }) {
           </>
         )}
       </div>
-      <div className="w-[30%]">
+      <div className="w-[30%] flex flex-col gap-y-4">
         <Card>
           <div className="bg-muted p-4 font-semibold">토론방(Sub Reddit)</div>
           <div className="p-4">
@@ -158,6 +159,8 @@ export default async function SubredditRoute({ params, searchParams }) {
             </Button>
           </div>
         </Card>
+
+        <SubredditList />
       </div>
     </div>
   );

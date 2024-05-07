@@ -42,7 +42,7 @@ export function CarouselReddit() {
   };
 
   return (
-    <section className="bg-neutral-100 py-8" ref={ref}>
+    <section className="bg-muted" ref={ref}>
       <div className="relative overflow-hidden p-4">
         <div className="custom-width flex flex-col gap-y-5">
           {/* 타이틀 */}

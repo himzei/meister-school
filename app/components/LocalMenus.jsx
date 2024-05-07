@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { menus } from "@/lib/menus";
 import { useDetectClose } from "@/lib/useDetectClose";
 import { ArrowDown, ArrowRight, HomeIcon } from "lucide-react";
