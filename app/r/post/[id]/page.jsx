@@ -103,7 +103,7 @@ export default async function PostPage({ params }) {
 
             {data.imageString && (
               <Image
-                src={data.imageString}
+                src={`${data.imageString}/public`}
                 alt="User Image"
                 width={500}
                 height={400}

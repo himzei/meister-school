@@ -52,9 +52,7 @@ export function SettingsFrom({ name, phone, avatar }) {
 
     const {
       data: { publicUrl },
-    } = await supabase.storage
-      .from("avatar")
-      .getPublicUrl(`${imageData?.path}`);
+    } = supabase.storage.from("avatar").getPublicUrl(`${imageData?.path}`);
 
     setAvatarUrl(publicUrl);
   };
