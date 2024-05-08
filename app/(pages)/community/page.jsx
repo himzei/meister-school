@@ -1,5 +1,6 @@
 import LocalMenus from "@/app/components/LocalMenus";
 import Pagination from "@/app/components/Pagination";
+import { ButtonWrapper } from "@/app/components/RoundedSlideButton";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Plus } from "lucide-react";
@@ -24,7 +25,7 @@ export default function CommunityPage() {
               .fill("")
               .map((_, i) => (
                 <Link href="/community/id" key={i}>
-                  <div className="px-2 flex justify-between items-center w-full">
+                  <div className="px-2 flex justify-between items-center w-full group">
                     {/* 날짜 제목 */}
                     <div className="flex items-center">
                       {/* 날짜 */}
@@ -39,14 +40,14 @@ export default function CommunityPage() {
                       {/* 제목 */}
                       <div className="flex gap-x-2 px-3">
                         <Badge>공지</Badge>
-                        <h1 className="tracking-tight">
+                        <h1 className="tracking-tight group-hover:text-primary duration-500">
                           경북 바이오 마이스터고등학고 미래유망분야 인력양성
                         </h1>
                       </div>
                     </div>
                     {/* 버튼 */}
-                    <div className="size-8 flex justify-center items-center border border-muted-foreground mr-4">
-                      <Plus className="text-muted-foreground" />
+                    <div>
+                      <ButtonWrapper text="자세히보기" />
                     </div>
                   </div>
 

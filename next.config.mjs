@@ -10,6 +10,10 @@ const nextConfig = {
         hostname: "imagedelivery.net",
         port: "",
       },
+      {
+        hostname: "plus.unsplash.com",
+        port: "",
+      },
     ],
   },
 };
