@@ -11,3 +11,5 @@
 },
 
 # 2
+
+https://supabase.com/partners/integrations/prisma

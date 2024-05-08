@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
-import { logOut } from "../login/actions";
+import { logOut } from "../(auth)/login/actions";
 
 export function UserDropdown({ userImage, email }) {
   return (

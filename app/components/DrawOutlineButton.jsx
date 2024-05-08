@@ -1,6 +1,6 @@
 export const DrawOutlineButton = ({ children }) => {
   return (
-    <button className="group relative w-full  px-4 py-2 font-medium text-muted-foreground transition-colors duration-[400ms] hover:text-primary">
+    <button className="group relative w-full px-2 py-1 font-medium text-muted-foreground transition-colors duration-[400ms] hover:text-primary">
       <span>{children}</span>
 
       {/* TOP */}

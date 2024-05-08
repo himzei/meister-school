@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { MainSlide } from "./components/MainSlide";
 import { Separator } from "@/components/ui/separator";
 import { CarouselReddit } from "./components/CarouselReddit";
+import { DrawOutlineButton } from "./components/DrawOutlineButton";
 
 export default function Home() {
   return (
@@ -27,13 +28,17 @@ export default function Home() {
             {Array(5)
               .fill("")
               .map((_, i) => (
-                <div
-                  key={i}
-                  className="flex justify-between w-full bg-muted py-2 px-1"
-                >
-                  <h2>경북 바이오 마이스터 고등학교 </h2>
-                  <p className="text-muted-foreground text-sm">2024-05-05</p>
-                </div>
+                <>
+                  <DrawOutlineButton key={i}>
+                    <div
+                      key={i}
+                      className="flex justify-between items-center w-full py-1"
+                    >
+                      <h2>경북 바이오 마이스터 고등학교 </h2>
+                      <p className="text-sm">2024-05-05</p>
+                    </div>
+                  </DrawOutlineButton>
+                </>
               ))}
           </div>
         </div>

@@ -13,7 +13,7 @@ import Link from "next/link";
 import Socials from "@/app/components/Socials";
 import { createAccount } from "./actions";
 import { useFormState } from "react-dom";
-import { SubmitButton } from "../components/SubmitButton";
+import { SubmitButton } from "../../components/SubmitButton";
 
 export default function JoinPage() {
   const [state, formAction] = useFormState(createAccount, null);

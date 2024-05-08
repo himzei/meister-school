@@ -4,25 +4,16 @@ import { menus } from "@/lib/menus";
 import { useDetectClose } from "@/lib/useDetectClose";
 import { ArrowDown, ArrowRight, HomeIcon } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
-export default function LocalMenus() {
-  const pathname = usePathname();
+export default function LocalMenus({ firstLocal, secondLocal }) {
   const firstFilters = menus.find((item) => {
-    return (
-      item.url === pathname ||
-      (item.subMenus &&
-        item.subMenus.some((subItem) => subItem.url === pathname))
-    );
+    return item.title === firstLocal;
   });
   const secondFilters = firstFilters?.subMenus?.filter((item) => item);
-  let secondTitleItem = secondFilters?.find((item) => item.url === pathname);
-
-  let firstTitle = firstFilters?.title;
-  const secondTitle = secondTitleItem?.title;
-
   const [firstIsOpen, firstRef, firstHandler] = useDetectClose(false);
   const [secondIsOpen, secondRef, secondHandler] = useDetectClose(false);
+  const isSecond = Boolean(secondFilters?.length);
+  console.log(isSecond);
 
   return (
     <div className="w-full bg-primary h-16 flex justify-center">
@@ -42,7 +33,7 @@ export default function LocalMenus() {
           }`}
         >
           <div className={`w-full flex items-center justify-between`}>
-            <h2>{firstTitle}</h2>
+            <h2>{firstLocal}</h2>
             <div className="transition-all bg-white  rounded-full">
               {firstIsOpen ? (
                 <ArrowDown size="18" className="text-primary" />
@@ -76,13 +67,13 @@ export default function LocalMenus() {
           onClick={secondHandler}
           ref={secondRef}
           className={`relative transition-all cursor-pointer flex px-6 items-center w-52 justify-between border-r-[1px] border-red-400 h-full ${
-            secondIsOpen && "bg-red-900"
+            secondIsOpen && isSecond && "bg-red-900"
           }`}
         >
           <div className={`w-full flex items-center justify-between`}>
-            <p>{secondTitle}</p>
+            <p>{secondLocal}</p>
             <div className="transition-all bg-white  rounded-full">
-              {secondIsOpen ? (
+              {secondIsOpen && isSecond ? (
                 <ArrowDown size="18" className="text-primary" />
               ) : (
                 <ArrowRight size="18" className="text-primary" />
@@ -91,7 +82,7 @@ export default function LocalMenus() {
           </div>
           <div
             className={`absolute transition-all top-[64px] left-0 w-[207px] bg-white border border-t-0 border-neutral-300 ${
-              secondIsOpen
+              secondIsOpen && isSecond
                 ? "opacity-100 block transition-all"
                 : "hidden opacity-0"
             }`}

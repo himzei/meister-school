@@ -50,8 +50,7 @@ const formSchema = z
       .email()
       .toLowerCase()
       .refine(checkUniqueEmail, "입력하신 이메일은 이미 사용중입니다!"),
-    password: z.string(),
-    //.regex(PASSWORD_REGEX, PASSWORD_REGEX_ERROR),
+    password: z.string().regex(PASSWORD_REGEX, PASSWORD_REGEX_ERROR),
     password2: z.string(),
   })
   .refine(checkPasswords, {
@@ -91,6 +90,6 @@ export async function createAccount(prevState, formData) {
     session.id = user.id;
     await session.save();
 
-    redirect("/profile");
+    redirect("/settings");
   }
 }

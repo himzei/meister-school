@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import Socials from "@/app/components/Socials";
-import { SubmitButton } from "../components/SubmitButton";
+import { SubmitButton } from "../../components/SubmitButton";
 import { useFormState } from "react-dom";
 import { login } from "./actions";
 
