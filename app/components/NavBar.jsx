@@ -38,16 +38,16 @@ export async function NavBar() {
         )}
 
         {/* 중간메뉴 */}
-        <div className="absolute  h-full flex justify-center items-center gap-x-8 left-1/2 -translate-x-1/2 z-10">
+        <div className="absolute  h-full flex justify-center items-center gap-x-4 left-1/2 -translate-x-1/2 z-10">
           {menus.map((item) => (
             <NavLink
               key={item.title}
               url={item.url}
               FlyoutContent={item.subMenus}
             >
-              <div className="flex flex-col h-full justify-center min-w-20">
+              <div className="flex flex-col h-full justify-center min-w-24 ">
                 <h1 className="text-xl font-bold">{item.title}</h1>
-                <p className=" text-muted-foreground text-sm uppercase">
+                <p className=" text-muted-foreground text-sm uppercase ">
                   {item.subTitle}
                 </p>
               </div>
