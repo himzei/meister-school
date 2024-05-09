@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { updateUserInfo } from "../actions";
+import { updateUserImage, updateUserInfo } from "../actions";
 import { SubmitButton } from "./SubmitButton";
 import { useFormState } from "react-dom";
 import { useEffect, useState } from "react";
@@ -17,6 +17,7 @@ export function SettingsFrom({ name, phone, avatar, email }) {
   const [avatarUrl, setAvatarUrl] = useState("");
   const [preview, setPreview] = useState("");
   const [state, formAction] = useFormState(updateUserInfo, null);
+
   const { toast } = useToast();
 
   useEffect(() => {
@@ -55,11 +56,11 @@ export function SettingsFrom({ name, phone, avatar, email }) {
     } = supabase.storage.from("avatar").getPublicUrl(`${imageData?.path}`);
 
     setAvatarUrl(publicUrl);
+    updateUserImage({ publicUrl });
   };
 
   return (
     <form action={formAction} className="py-8">
-      <input type="hidden" name="avatar" value={avatarUrl} />
       <h1 className="text-2xl font-extrabold tracking-tight">설정</h1>
 
       <p className="text-muted-foreground text-sm">

@@ -29,6 +29,34 @@ export async function getUser() {
 
   return;
 }
+export async function updateUserImage({ publicUrl }) {
+  console.log(publicUrl);
+  const user = await getUser();
+
+  if (!user) {
+    return redirect("/login");
+  }
+
+  try {
+    await prisma.user.update({
+      where: {
+        id: user.id,
+      },
+      data: {
+        avatar: publicUrl,
+      },
+    });
+
+    revalidatePath("/settings");
+
+    return {
+      status: "green",
+      message: "사용자 이미지가 성공적으로 업데이트 되었습니다!",
+    };
+  } catch (e) {
+    throw e;
+  }
+}
 
 export async function updateUserInfo(prevState, formData) {
   const user = await getUser();
@@ -39,7 +67,6 @@ export async function updateUserInfo(prevState, formData) {
 
   const name = formData.get("name");
   const phone = formData.get("phone");
-  const avatar = formData.get("avatar");
   const email = formData.get("email");
 
   try {
@@ -50,7 +77,6 @@ export async function updateUserInfo(prevState, formData) {
       data: {
         name: name,
         phone: phone,
-        avatar: avatar,
         email: email,
       },
     });
