@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { supabase } from "@/lib/supabase";
 
-export function SettingsFrom({ name, phone, avatar }) {
+export function SettingsFrom({ name, phone, avatar, email }) {
   const [avatarUrl, setAvatarUrl] = useState("");
   const [preview, setPreview] = useState("");
   const [state, formAction] = useFormState(updateUserInfo, null);
@@ -58,7 +58,7 @@ export function SettingsFrom({ name, phone, avatar }) {
   };
 
   return (
-    <form action={formAction}>
+    <form action={formAction} className="py-8">
       <input type="hidden" name="avatar" value={avatarUrl} />
       <h1 className="text-2xl font-extrabold tracking-tight">설정</h1>
 
@@ -104,6 +104,17 @@ export function SettingsFrom({ name, phone, avatar }) {
           <Input
             defaultValue={name}
             name="name"
+            required
+            className="mt-2"
+            min={2}
+            maxLength={21}
+          />
+        </div>
+        <div>
+          <Label className="px-1 font-semibold text-lg">이메일</Label>
+          <Input
+            defaultValue={email}
+            name="email"
             required
             className="mt-2"
             min={2}

@@ -19,6 +19,7 @@ export async function getUser() {
         username: true,
         email: true,
         avatar: true,
+        isAdmin: true,
       },
     });
     if (user) {
@@ -39,6 +40,7 @@ export async function updateUserInfo(prevState, formData) {
   const name = formData.get("name");
   const phone = formData.get("phone");
   const avatar = formData.get("avatar");
+  const email = formData.get("email");
 
   try {
     await prisma.user.update({
@@ -49,6 +51,7 @@ export async function updateUserInfo(prevState, formData) {
         name: name,
         phone: phone,
         avatar: avatar,
+        email: email,
       },
     });
 

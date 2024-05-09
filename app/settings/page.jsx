@@ -15,6 +15,7 @@ async function getData(userId) {
       name: true,
       avatar: true,
       phone: true,
+      email: true,
     },
   });
 
@@ -34,6 +35,7 @@ export default async function SettingsPage() {
         name={data?.name}
         avatar={data?.avatar}
         phone={data?.phone}
+        email={data?.email}
       />
     </div>
   );
