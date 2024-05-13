@@ -35,7 +35,7 @@ export default function Login() {
             <Input name="email" type="email" placeholder="이메일" required />
             <Input
               name="password"
-              type="text"
+              type="password"
               placeholder="패스워드"
               required
             />

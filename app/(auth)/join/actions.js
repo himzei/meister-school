@@ -5,6 +5,12 @@ import { z } from "zod";
 import bcrypt from "bcrypt";
 import { redirect } from "next/navigation";
 import getSession from "@/lib/session";
+import {
+  PASSWORD_MIN_ERROR,
+  PASSWORD_MIN_LENGTH,
+  PASSWORD_REGEX,
+  PASSWORD_REGEX_ERROR,
+} from "@/lib/constants";
 
 // 비밀번호 체크
 const checkPasswords = ({ password, password2 }) => password === password2;
@@ -50,7 +56,10 @@ const formSchema = z
       .email()
       .toLowerCase()
       .refine(checkUniqueEmail, "입력하신 이메일은 이미 사용중입니다!"),
-    password: z.string().regex(PASSWORD_REGEX, PASSWORD_REGEX_ERROR),
+    password: z
+      .string()
+      .min(PASSWORD_MIN_LENGTH, PASSWORD_MIN_ERROR)
+      .regex(PASSWORD_REGEX, PASSWORD_REGEX_ERROR),
     password2: z.string(),
   })
   .refine(checkPasswords, {

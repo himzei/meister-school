@@ -35,22 +35,34 @@ export default function JoinPage() {
           <form action={formAction} className="flex flex-col gap-y-4">
             <Input name="username" type="text" placeholder="아이디" required />
             {state?.fieldErrors.username && (
-              <div>{state?.fieldErrors.username}</div>
+              <div className="text-sm text-red-500 px-2 -mt-1">
+                {state?.fieldErrors.username}
+              </div>
             )}
             <Input name="email" type="email" placeholder="이메일" required />
-
+            {state?.fieldErrors.email && <div>{state?.fieldErrors.eamil}</div>}
             <Input
               name="password"
-              type="passowrd"
+              type="password"
               placeholder="패스워드"
               required
             />
+            {state?.fieldErrors.password && (
+              <div className="text-sm text-red-500 px-2 -mt-1">
+                {state?.fieldErrors.password}
+              </div>
+            )}
             <Input
               name="password2"
               type="password"
               placeholder="패스워드 확인"
               required
             />
+            {state?.fieldErrors.password2 && (
+              <div className="text-sm text-red-500 px-2 -mt-1">
+                {state?.fieldErrors.password2}
+              </div>
+            )}
             <SubmitButton text="회원가입" />
           </form>
           <Separator className="my-4" />

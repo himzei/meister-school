@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { RiKakaoTalkFill } from "react-icons/ri";
-import { FaFacebook, FaGoogle, FaGithub } from "react-icons/fa";
+import { FaGoogle, FaGithub } from "react-icons/fa";
+import { SiNaver } from "react-icons/si";
 import Link from "next/link";
 
 export default function Socials() {
@@ -13,17 +14,18 @@ export default function Socials() {
         </Link>
       </Button>
       <Button variant="outline" asChild>
+        <Link href="/naver/start" className="flex gap-x-1">
+          <SiNaver size={16} />
+          네이버
+        </Link>
+      </Button>
+      <Button variant="outline" asChild>
         <Link href="/google/start" className="flex gap-x-1">
           <FaGoogle size={18} />
           구글
         </Link>
       </Button>
-      <Button variant="outline" asChild>
-        <Link href="/facebook/start" className="flex gap-x-1">
-          <FaFacebook size={20} />
-          페이스북
-        </Link>
-      </Button>
+
       <Button variant="outline" aschild>
         <Link href="/github/start" className="flex gap-x-1">
           <FaGithub size={20} />

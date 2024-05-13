@@ -5,6 +5,8 @@ import { z } from "zod";
 import bcrypt from "bcrypt";
 import getSession from "@/lib/session";
 import { redirect } from "next/navigation";
+import { getIronSession } from "iron-session";
+import { cookies } from "next/headers";
 
 const checkEmailExists = async (email) => {
   const user = await prisma.user.findUnique({
@@ -57,7 +59,13 @@ export async function login(prevState, formData) {
     const ok = await bcrypt.compare(result.data.password, user.password);
 
     if (ok) {
-      const session = await getSession();
+      // const session = await getSession();
+
+      const session = await getIronSession(cookies(), {
+        cookieName: "bio-meister",
+        password: process.env.COOKIE_PASSWORD,
+      });
+
       session.id = user.id;
       await session.save();
 

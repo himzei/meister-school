@@ -27,6 +27,7 @@ model User {
   kakaoId  String? @unique
   metaId   String? @unique
   googleId String? @unique
+  naverId  String? @unique
 
   createdSubreddits Subreddit[]
 
