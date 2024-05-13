@@ -7,9 +7,9 @@ export default function Socials() {
   return (
     <div className="flex w-full *:uppercase">
       <Button variant="outline" asChild>
-        <Link href="/kakao/start" className="flex w-full">
+        <Link href="/kakao/start" className="flex w-full gap-2 bg-[#FEE500]">
           <RiKakaoTalkFill size={22} />
-          카카오
+          <span className="text-[#191919]">카카오로 로그인</span>
         </Link>
       </Button>
       {/* <Button variant="outline" asChild>
