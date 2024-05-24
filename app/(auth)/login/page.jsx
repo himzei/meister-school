@@ -17,6 +17,7 @@ import { login } from "./actions";
 
 export default function Login() {
   const [state, formAction] = useFormState(login, null);
+  console.log(state)
   return (
     <div className="max-w-screen-sm w-full mx-auto pt-24">
       <Card className="w-full">
@@ -33,12 +34,22 @@ export default function Login() {
         <CardContent>
           <form action={formAction} className="flex flex-col gap-y-4">
             <Input name="email" type="email" placeholder="이메일" required />
+            {state?.fieldErrors.email && (
+              <div className="text-sm text-red-500 px-2 -mt-1">
+                {state?.fieldErrors.email}
+              </div>
+            )}
             <Input
               name="password"
               type="password"
               placeholder="패스워드"
               required
             />
+            {state?.fieldErrors.password && (
+              <div className="text-sm text-red-500 px-2 -mt-1">
+                {state?.fieldErrors.password}
+              </div>
+            )}
             <SubmitButton text="로그인" />
           </form>
           <Separator className="my-4" />

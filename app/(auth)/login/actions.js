@@ -26,9 +26,9 @@ const formSchema = z.object({
     .string()
     .email()
     .toLowerCase()
-    .refine(checkEmailExists, "An account with this email does not exist."),
+    .refine(checkEmailExists, "입력하신 이메일은 존재하지 않습니다!"),
   password: z.string({
-    required_error: "Password is required",
+    required_error: "패스워드는 필수 입력사항입니다!",
   }),
   // .min(PASSWORD_MIN_LENGTH),
   // .regex(PASSWORD_REGEX, PASSWORD_REGEX_ERROR),
